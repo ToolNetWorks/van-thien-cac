@@ -1,0 +1,152 @@
+/* Footer component styles (components/footer.html)
+ * Lightweight translucent atmospheric footer (zero backdrop-filter lag over video)
+ * anchored firmly at bottom via sticky flex layout, crowned by a 3D trompe-l'œil reclining dragon.
+ */
+.site-footer {
+  position: relative;
+  z-index: 4;
+  margin-top: auto;
+  flex-shrink: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 19, 30, 0.56) 0%,
+    rgba(8, 16, 26, 0.80) 44%,
+    rgba(6, 12, 20, 0.92) 100%
+  );
+  box-shadow: 0 -22px 44px rgba(6, 12, 22, 0.36);
+  overflow: visible;
+}
+
+/* Delicate antique-gold top hairline matching .divider-line */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 2%,
+    rgba(246, 225, 180, 0.40) 22%,
+    rgba(255, 238, 198, 0.62) 50%,
+    rgba(246, 225, 180, 0.40) 78%,
+    transparent 98%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* 3D Optical Illusion Reclining Dragon:
+ * Head, antlers, arched back & tail rise above the top golden border while front claws drape
+ * over the ledge and belly/hind paws + pre-baked cast drop shadows rest directly on the footer.
+ * Zero runtime CSS filter / zero animation -> 0.00ms GPU cost per frame! */
+.footer-dragon-3d {
+  --dw: clamp(220px, 27.5vw, 390px);
+  position: absolute;
+  left: 57%;
+  top: calc(var(--dw) * -0.368);
+  width: var(--dw);
+  aspect-ratio: 534 / 281;
+  background: url("../../assets/creatures/dragon/footer-dragon.webp?v=3") center / contain no-repeat;
+  transform: translateX(-50%);
+  pointer-events: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+  z-index: 6;
+}
+
+/* Footer Content Layer */
+.footer-main {
+  position: relative;
+  z-index: 5;
+  padding: 32px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.footer-brand-col {
+  max-width: 455px;
+}
+.footer-para {
+  max-width: 450px;
+  color: #edf3f8;
+  font-size: 12px;
+  line-height: 1.85;
+  margin: 14px 0 0;
+  text-shadow: 0 1px 6px rgba(4, 10, 18, 0.85);
+}
+.footer-side {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 6px;
+}
+.footer-side a {
+  font-size: 12.5px;
+  color: #fff8ea;
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgba(4, 10, 18, 0.85);
+  transition: color 0.2s ease;
+}
+.footer-side a:hover {
+  color: var(--gold);
+}
+.footer-bottom {
+  position: relative;
+  z-index: 5;
+  padding: 14px 0 16px;
+  border-top: 1px solid rgba(255, 244, 218, 0.16);
+  color: #dce6f0;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  text-shadow: 0 1px 4px rgba(4, 10, 18, 0.8);
+}
+
+@media (max-width: 1080px) {
+  .footer-dragon-3d {
+    --dw: clamp(210px, 34vw, 310px);
+    left: auto;
+    right: 24px;
+    transform: none;
+    top: calc(var(--dw) * -0.368);
+  }
+  .footer-side {
+    padding-top: 28px;
+  }
+}
+
+@media (max-width: 650px) {
+  .footer-dragon-3d {
+    --dw: 195px;
+    left: auto;
+    right: 10px;
+    transform: none;
+    top: -72px;
+  }
+  .footer-main {
+    padding: 36px 0 16px;
+    gap: 16px;
+  }
+  .footer-para {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+  .footer-side {
+    gap: 16px;
+    padding-top: 0;
+  }
+  .footer-bottom {
+    padding: 12px 0 14px;
+  }
+}

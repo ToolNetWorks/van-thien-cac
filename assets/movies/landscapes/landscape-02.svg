@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Kiếm Phá Cửu Thiên">
+<defs>
+  <linearGradient id="h_sky_2" x2="0" y2="1"><stop stop-color="#110c21"/><stop offset=".6" stop-color="#3e315d"/><stop offset="1" stop-color="#080c14"/></linearGradient>
+  <radialGradient id="h_sun_2"><stop stop-color="#d9a46e" stop-opacity=".7"/><stop offset=".4" stop-color="#d9a46e" stop-opacity=".25"/><stop offset="1" stop-color="#d9a46e" stop-opacity="0"/></radialGradient>
+  <linearGradient id="h_fog_2" x2="0" y2="1"><stop stop-color="#7774a6" stop-opacity=".3"/><stop offset="1" stop-color="#7774a6" stop-opacity="0"/></linearGradient>
+  <linearGradient id="h_bottom_2" x2="0" y2="1"><stop stop-color="transparent"/><stop offset="1" stop-color="#070a10" stop-opacity=".92"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#h_sky_2)"/>
+<g fill="#d9a46e"><circle cx="1075" cy="206" r="0.8" opacity="0.52"/><circle cx="1535" cy="433" r="1.8" opacity="0.55"/><circle cx="387" cy="473" r="1.2" opacity="0.63"/><circle cx="123" cy="459" r="1.8" opacity="0.62"/><circle cx="1076" cy="59" r="0.8" opacity="0.36"/><circle cx="1361" cy="412" r="0.8" opacity="0.53"/><circle cx="1449" cy="295" r="0.8" opacity="0.56"/><circle cx="544" cy="313" r="0.8" opacity="0.52"/><circle cx="117" cy="462" r="0.8" opacity="0.25"/><circle cx="1464" cy="108" r="0.8" opacity="0.46"/><circle cx="1251" cy="45" r="1.2" opacity="0.69"/><circle cx="530" cy="84" r="1.8" opacity="0.32"/><circle cx="387" cy="44" r="0.8" opacity="0.47"/><circle cx="598" cy="294" r="1.8" opacity="0.65"/><circle cx="554" cy="217" r="1.8" opacity="0.45"/><circle cx="1162" cy="76" r="0.8" opacity="0.21"/><circle cx="653" cy="208" r="0.8" opacity="0.68"/><circle cx="1383" cy="463" r="0.8" opacity="0.40"/><circle cx="769" cy="121" r="1.8" opacity="0.42"/><circle cx="223" cy="75" r="1.2" opacity="0.32"/><circle cx="446" cy="75" r="1.2" opacity="0.59"/><circle cx="798" cy="314" r="0.8" opacity="0.32"/><circle cx="1437" cy="468" r="1.8" opacity="0.21"/><circle cx="93" cy="183" r="1.2" opacity="0.52"/><circle cx="370" cy="175" r="0.8" opacity="0.50"/><circle cx="1545" cy="460" r="1.2" opacity="0.58"/><circle cx="1060" cy="233" r="1.2" opacity="0.64"/><circle cx="881" cy="348" r="1.8" opacity="0.69"/><circle cx="82" cy="41" r="1.8" opacity="0.59"/><circle cx="742" cy="237" r="0.8" opacity="0.21"/><circle cx="590" cy="111" r="1.8" opacity="0.54"/><circle cx="1384" cy="26" r="1.2" opacity="0.42"/><circle cx="1472" cy="196" r="1.8" opacity="0.44"/><circle cx="175" cy="275" r="1.8" opacity="0.56"/><circle cx="675" cy="230" r="1.2" opacity="0.21"/><circle cx="416" cy="480" r="0.8" opacity="0.20"/><circle cx="210" cy="442" r="0.8" opacity="0.28"/><circle cx="754" cy="291" r="0.8" opacity="0.63"/><circle cx="1254" cy="106" r="1.8" opacity="0.47"/><circle cx="448" cy="78" r="1.8" opacity="0.63"/><circle cx="381" cy="161" r="1.8" opacity="0.52"/><circle cx="517" cy="168" r="1.8" opacity="0.30"/><circle cx="532" cy="338" r="1.8" opacity="0.50"/><circle cx="1431" cy="237" r="0.8" opacity="0.60"/><circle cx="1233" cy="97" r="0.8" opacity="0.62"/><circle cx="262" cy="430" r="1.2" opacity="0.44"/><circle cx="487" cy="152" r="0.8" opacity="0.65"/><circle cx="1491" cy="378" r="1.2" opacity="0.40"/></g>
+<circle cx="1260" cy="280" r="320" fill="url(#h_sun_2)"/>
+<circle cx="1260" cy="280" r="88" fill="#d9a46e" opacity=".8"/>
+<g transform="translate(1120 200) scale(0.65)" opacity="0.85">
+        <path d="M0 0 C20 -30 60 -40 100 -20 C80 -10 60 -5 40 5 C70 15 90 35 110 60 C80 40 50 25 20 15 C-10 25 -30 40 -50 60 C-40 30 -20 10 0 0 Z" fill="#d9a46e"/>
+    </g>
+<path d="M-80 620 L180 480 L420 580 L680 424 L940 590 L1180 456 L1420 560 L1680 430 V900 H-80 Z" fill="#3e315d" opacity=".55"/>
+<path d="M-80 690 L160 532 L480 670 L760 518 L1040 680 L1320 546 L1680 640 V900 H-80 Z" fill="#110c21" opacity=".7"/>
+<g transform="translate(460 470) scale(1.1)" stroke="#d9a46e" stroke-width="2.5" fill="#3e315d" opacity=".75">
+        <path d="M-60 10 Q0 -12 60 10 L40 16 H-40 Z"/>
+        <path d="M-34 16 H34 V90 H-34 Z"/>
+        <path d="M-48 -16 Q0 -34 48 -16 L28 -10 H-28 Z"/>
+        <path d="M-25 -10 H25 V10 H-25 Z"/>
+        <path d="M-34 -38 Q0 -60 34 -38 L0 -46 Z"/>
+        <path d="M-48 90 H48"/>
+    </g>
+<path d="M-80 760 L240 630 L560 770 L890 620 L1210 750 L1520 620 L1680 730 V900 H-80 Z" fill="#0a121c" opacity=".88"/>
+<path d="M-80 810 Q320 730 800 780 T1680 760 V900 H-80 Z" fill="url(#h_fog_2)"/>
+<rect y="600" width="1600" height="300" fill="url(#h_bottom_2)"/>
+<!-- Decorative frame & Seal -->
+<rect x="24" y="24" width="1552" height="852" rx="14" stroke="#d9a46e" stroke-opacity=".22" stroke-width="2" fill="none"/>
+<g transform="translate(1490, 80)" opacity=".82">
+  <rect x="-18" y="-18" width="36" height="110" rx="4" fill="#a42828" stroke="#d9a46e" stroke-width="1.5" opacity=".85"/>
+  <text x="0" y="16" fill="#fff" font-family="'Noto Serif',serif" font-size="15" font-weight="bold" text-anchor="middle" letter-spacing="4" writing-mode="vertical-rl">一劍破天</text>
+</g>
+<g transform="translate(70, 810)">
+  <text x="0" y="0" fill="#d9a46e" font-family="'Noto Serif',Georgia,serif" font-size="34" font-weight="700" letter-spacing="2" opacity=".92">Kiếm Phá Cửu Thiên</text>
+</g>
+</svg>

@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<!-- Crane styling is isolated in an iframe so the source site's Tailwind/CSS does not override the film site. -->
+<link rel="stylesheet" href="../../assets/creatures/crane/crane.css">
+<style>
+  :root {
+    color-scheme: light !important;
+    --crane-size: clamp(165px, 17vw, 248px);
+    --flight-duration: 28s;
+    --soar-duration: 13s;
+    --beat-cycle: 7.6s;
+  }
+  html,body { color-scheme:light!important; margin:0!important; padding:0!important; width:100%!important; height:100%!important; overflow:hidden!important; background:transparent!important; }
+  body { position:relative!important; }
+  .stage { position:fixed;inset:0;overflow:hidden;pointer-events:none;isolation:isolate; }
+
+  /* Sunlit Vân Hải Tiên Cung crane contrast + decouple from scroll-timeline */
+  :root .crane {
+    --crane-white: #fffdf8;
+    --crane-edge: rgba(24, 32, 42, 0.34);
+    --crane-black: #171c24;
+    --crane-black-edge: rgba(255, 246, 224, 0.24);
+    --crane-leg: #242d38;
+    --seal: #c9322c;
+    --ink: #3b4652;
+  }
+
+  /* Layer 1: Position wrapper (CSS fallback sky-crossing, upgraded to interactive scroll flight via .js-flight) */
+  .crane {
+    position:absolute!important;left:0!important;top:0!important;right:auto!important;bottom:auto!important;
+    width:var(--crane-size)!important;height:var(--crane-size)!important;z-index:1!important;opacity:.96!important;
+    pointer-events:none!important;filter:drop-shadow(0 8px 18px rgba(16,26,40,.34));
+    animation:sky-crossing var(--flight-duration) linear infinite!important;
+    animation-delay:-7s!important;
+    animation-timeline:auto!important;
+    animation-play-state:running!important;
+    will-change:transform;
+  }
+  .crane.js-flight {
+    animation:none!important;
+    animation-delay:0s!important;
+  }
+
+  /* Layer 2: Smooth directional flip (scaleX(1) = <- facing left, scaleX(-1) = -> facing right) */
+  .crane-dir {
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    transform-origin:50% 50%!important;
+    transition:transform 0.4s cubic-bezier(0.25, 0.85, 0.25, 1)!important;
+    will-change:transform;
+  }
+
+  /* Layer 3: Climb / dive pitch inside local crane space (+deg = nose UP, -deg = nose DOWN) */
+  .crane-soar {
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    transform-origin:52% 48%!important;
+    animation:crane-soar var(--soar-duration) linear infinite!important;
+    animation-delay:-3s!important;
+    will-change:transform;
+  }
+  .crane.js-flight .crane-soar {
+    animation:none!important;
+  }
+
+  /* Layer 4: Lift response synced to each wing downstroke, calm during glide */
+  .crane-bob {
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    animation:crane-lift var(--beat-cycle) ease-in-out infinite!important;
+    animation-timeline:auto!important;
+    will-change:transform;
+  }
+
+  .crane svg {
+    display:block!important;position:absolute!important;inset:0!important;
+    width:100%!important;height:100%!important;overflow:visible!important;
+  }
+
+  /* Override scroll(root) timeline from crane.css on ALL articulated joints */
+  .crane .crane-part,
+  .crane .crane-fold {
+    animation-timeline: auto !important;
+    animation-play-state: running !important;
+  }
+
+  /* Hide landed-pose elements (ground, folded wings, standing tail bustle) during flight */
+  .crane .crane-folded,
+  .crane .crane-ground,
+  .crane .crane-plumes {
+    display: none !important;
+    opacity: 0 !important;
+    animation: none !important;
+  }
+  .crane .crane-fold {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .crane .crane-fold.crane-far {
+    opacity: 0.76 !important;
+  }
+
+  /* Body breathing pitch synced with wingbeats */
+  .crane .crane-body {
+    transform-origin: 210px 192px !important;
+    animation: body-breathe var(--beat-cycle) ease-in-out infinite !important;
+    animation-timeline: auto !important;
+  }
+
+  /* Fluid multi-beat + glide wing choreography with feather flex (skewX) & wrist tuck (scaleX) */
+  .crane .crane-wing {
+    transform-origin: 200px 186px !important;
+    animation: crane-flap var(--beat-cycle) linear infinite !important;
+    animation-delay: 0s !important;
+    animation-timeline: auto !important;
+    animation-play-state: running !important;
+    will-change: transform;
+  }
+  .crane .crane-wing-far {
+    transform-origin: 200px 186px !important;
+    translate: -10px -4px !important;
+    animation: crane-flap-far var(--beat-cycle) linear infinite !important;
+    animation-delay: -0.18s !important;
+    animation-timeline: auto !important;
+    animation-play-state: running !important;
+    will-change: transform;
+  }
+
+  /* Articulated neck wave + stabilized head gaze */
+  .crane .crane-neck1 { animation: neck-wave-1 var(--beat-cycle) ease-in-out infinite !important; animation-delay: 0s !important; animation-timeline: auto !important; }
+  .crane .crane-neck2 { animation: neck-wave-2 var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.12s !important; animation-timeline: auto !important; }
+  .crane .crane-neck3 { animation: neck-wave-3 var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.24s !important; animation-timeline: auto !important; }
+  .crane .crane-neck4 { animation: neck-wave-4 var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.36s !important; animation-timeline: auto !important; }
+  .crane .crane-neck5 { animation: neck-wave-5 var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.48s !important; animation-timeline: auto !important; }
+  .crane .crane-head  { animation: head-poise  var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.15s !important; animation-timeline: auto !important; }
+
+  /* Trailing legs gently swaying in slipstream */
+  .crane .crane-thigh     { animation: thigh-sway     var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.1s !important; animation-timeline: auto !important; }
+  .crane .crane-shin      { animation: shin-sway      var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.32s !important; animation-timeline: auto !important; }
+  .crane .crane-toes      { animation: toes-sway      var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.52s !important; animation-timeline: auto !important; }
+  .crane .crane-thigh-far { animation: thigh-far-sway var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.42s !important; animation-timeline: auto !important; }
+  .crane .crane-shin-far  { animation: shin-sway      var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.64s !important; animation-timeline: auto !important; }
+  .crane .crane-toes-far  { animation: toes-sway      var(--beat-cycle) ease-in-out infinite !important; animation-delay: -0.84s !important; animation-timeline: auto !important; }
+
+  /* Horizontal crossing fallback */
+  @keyframes sky-crossing {
+    0%   { transform: translate3d(calc(100vw + 8vw), 0, 0); }
+    100% { transform: translate3d(calc(-1 * var(--crane-size) - 10vw), 0, 0); }
+  }
+
+  /* Sinusoidal vertical soar fallback */
+  @keyframes crane-soar {
+    0%   { transform: translate3d(0, 26vh, 0) rotate(0deg) scale(0.95);    animation-timing-function: cubic-bezier(0.45, 0, 1, 1); }
+    25%  { transform: translate3d(0, 18vh, 0) rotate(3.8deg) scale(1.01);  animation-timing-function: cubic-bezier(0, 0, 0.55, 1); }
+    50%  { transform: translate3d(0, 10vh, 0) rotate(0deg) scale(1.05);    animation-timing-function: cubic-bezier(0.45, 0, 1, 1); }
+    75%  { transform: translate3d(0, 18vh, 0) rotate(-3.8deg) scale(1.00); animation-timing-function: cubic-bezier(0, 0, 0.55, 1); }
+    100% { transform: translate3d(0, 26vh, 0) rotate(0deg) scale(0.95); }
+  }
+
+  /* Near wing: 3 graceful slow beats + 1 buoyant open-wing glide */
+  @keyframes crane-flap {
+    0%   { transform: rotate(-7deg) skewX(5deg)  scale(0.97, 0.96);  animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    5%   { transform: rotate(0deg)  skewX(-6deg) scale(1.03, 0.34);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    10%  { transform: rotate(10deg) skewX(-9deg) scale(0.96, -0.76); animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    15%  { transform: rotate(3deg)  skewX(8deg)  scale(0.91, 0.04);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    20%  { transform: rotate(-7deg) skewX(5deg)  scale(0.97, 0.96);  animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    25%  { transform: rotate(0deg)  skewX(-6deg) scale(1.03, 0.34);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    30%  { transform: rotate(10deg) skewX(-9deg) scale(0.96, -0.76); animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    35%  { transform: rotate(3deg)  skewX(8deg)  scale(0.91, 0.04);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    40%  { transform: rotate(-7deg) skewX(5deg)  scale(0.97, 0.96);  animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    45%  { transform: rotate(0deg)  skewX(-6deg) scale(1.03, 0.34);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    50%  { transform: rotate(10deg) skewX(-9deg) scale(0.96, -0.76); animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    56%  { transform: rotate(2deg)  skewX(6deg)  scale(0.94, 0.14);  animation-timing-function: cubic-bezier(0, 0, 0.55, 1); }
+    64%  { transform: rotate(-3deg) skewX(2deg)  scale(1.01, 0.62);  animation-timing-function: ease-in-out; }
+    76%  { transform: rotate(-5deg) skewX(3deg)  scale(1.02, 0.72);  animation-timing-function: ease-in-out; }
+    88%  { transform: rotate(-2deg) skewX(1deg)  scale(1.00, 0.54);  animation-timing-function: ease-in-out; }
+    100% { transform: rotate(-7deg) skewX(5deg)  scale(0.97, 0.96); }
+  }
+
+  /* Far wing: slightly higher dihedral during glide & subtly shallower stroke for 3D depth */
+  @keyframes crane-flap-far {
+    0%   { transform: rotate(-6deg) skewX(4deg)  scale(0.96, 0.98);  animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    5%   { transform: rotate(0deg)  skewX(-5deg) scale(1.02, 0.40);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    10%  { transform: rotate(9deg)  skewX(-8deg) scale(0.95, -0.66); animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    15%  { transform: rotate(2deg)  skewX(7deg)  scale(0.90, 0.12);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    20%  { transform: rotate(-6deg) skewX(4deg)  scale(0.96, 0.98);  animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    25%  { transform: rotate(0deg)  skewX(-5deg) scale(1.02, 0.40);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    30%  { transform: rotate(9deg)  skewX(-8deg) scale(0.95, -0.66); animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    35%  { transform: rotate(2deg)  skewX(7deg)  scale(0.90, 0.12);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    40%  { transform: rotate(-6deg) skewX(4deg)  scale(0.96, 0.98);  animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    45%  { transform: rotate(0deg)  skewX(-5deg) scale(1.02, 0.40);  animation-timing-function: cubic-bezier(0, 0, 0.58, 1); }
+    50%  { transform: rotate(9deg)  skewX(-8deg) scale(0.95, -0.66); animation-timing-function: cubic-bezier(0.42, 0, 1, 1); }
+    56%  { transform: rotate(1deg)  skewX(5deg)  scale(0.94, 0.24);  animation-timing-function: cubic-bezier(0, 0, 0.55, 1); }
+    64%  { transform: rotate(-5deg) skewX(2deg)  scale(1.00, 0.78);  animation-timing-function: ease-in-out; }
+    76%  { transform: rotate(-7deg) skewX(3deg)  scale(1.01, 0.88);  animation-timing-function: ease-in-out; }
+    88%  { transform: rotate(-4deg) skewX(2deg)  scale(0.99, 0.72);  animation-timing-function: ease-in-out; }
+    100% { transform: rotate(-6deg) skewX(4deg)  scale(0.96, 0.98); }
+  }
+
+  /* Body upward lift right after each downstroke, serene drift during glide */
+  @keyframes crane-lift {
+    0%   { transform: translate3d(0, 3px, 0); }
+    12%  { transform: translate3d(0, -7px, 0); }
+    21%  { transform: translate3d(0, 3px, 0); }
+    32%  { transform: translate3d(0, -8px, 0); }
+    41%  { transform: translate3d(0, 3px, 0); }
+    53%  { transform: translate3d(0, -9px, 0); }
+    68%  { transform: translate3d(0, -5px, 0); }
+    84%  { transform: translate3d(0, 1px, 0); }
+    100% { transform: translate3d(0, 3px, 0); }
+  }
+
+  /* Subtle aerodynamic body pitch per stroke */
+  @keyframes body-breathe {
+    0%   { transform: rotate(-1.2deg); }
+    10%  { transform: rotate(2.2deg); }
+    20%  { transform: rotate(-1.2deg); }
+    30%  { transform: rotate(2.2deg); }
+    40%  { transform: rotate(-1.2deg); }
+    50%  { transform: rotate(2.4deg); }
+    66%  { transform: rotate(0.6deg); }
+    84%  { transform: rotate(-0.8deg); }
+    100% { transform: rotate(-1.2deg); }
+  }
+
+  /* Organic S-wave along the 5 articulated neck joints with stabilized head gaze */
+  @keyframes neck-wave-1 {
+    0%, 20%, 40%, 100% { transform: rotate(9.2deg); }
+    10%, 30%, 50%      { transform: rotate(6.8deg); }
+    72%                { transform: rotate(8.0deg); }
+  }
+  @keyframes neck-wave-2 {
+    0%, 20%, 40%, 100% { transform: rotate(4.0deg); }
+    10%, 30%, 50%      { transform: rotate(2.0deg); }
+    72%                { transform: rotate(3.0deg); }
+  }
+  @keyframes neck-wave-3 {
+    0%, 20%, 40%, 100% { transform: rotate(1.8deg); }
+    10%, 30%, 50%      { transform: rotate(0.2deg); }
+    72%                { transform: rotate(1.0deg); }
+  }
+  @keyframes neck-wave-4 {
+    0%, 20%, 40%, 100% { transform: rotate(0.8deg); }
+    10%, 30%, 50%      { transform: rotate(-0.8deg); }
+    72%                { transform: rotate(0deg); }
+  }
+  @keyframes neck-wave-5 {
+    0%, 20%, 40%, 100% { transform: rotate(0.6deg); }
+    10%, 30%, 50%      { transform: rotate(-0.6deg); }
+    72%                { transform: rotate(0deg); }
+  }
+  @keyframes head-poise {
+    0%, 20%, 40%, 100% { transform: rotate(-17.4deg); }
+    10%, 30%, 50%      { transform: rotate(-10.6deg); }
+    72%                { transform: rotate(-14.0deg); }
+  }
+
+  /* Trailing legs gently floating in the wind */
+  @keyframes thigh-sway {
+    0%, 20%, 40%, 100% { transform: rotate(8.2deg); }
+    10%, 30%, 50%      { transform: rotate(3.8deg); }
+    72%                { transform: rotate(5.5deg); }
+  }
+  @keyframes thigh-far-sway {
+    0%, 20%, 40%, 100% { transform: rotate(5.6deg); }
+    10%, 30%, 50%      { transform: rotate(1.4deg); }
+    72%                { transform: rotate(3.2deg); }
+  }
+  @keyframes shin-sway {
+    0%, 20%, 40%, 100% { transform: rotate(2.6deg); }
+    10%, 30%, 50%      { transform: rotate(-3.2deg); }
+    72%                { transform: rotate(-0.8deg); }
+  }
+  @keyframes toes-sway {
+    0%, 20%, 40%, 100% { transform: rotate(4.2deg); }
+    10%, 30%, 50%      { transform: rotate(-4.5deg); }
+    72%                { transform: rotate(-1.2deg); }
+  }
+
+  .fallback { position:absolute;top:16vh;left:0;width:var(--crane-size);height:auto;opacity:.9;
+    filter:drop-shadow(0 0 14px #bfab6740);animation:sky-crossing var(--flight-duration) linear infinite;
+    animation-delay:-7s;will-change:transform; }
+  .fallback .fallback-wing { transform-box:fill-box;transform-origin:center;
+    animation:fallback-flap 1.4s ease-in-out infinite alternate; }
+  @keyframes fallback-flap {to{transform:rotate(-14deg) scaleY(.68)}}
+
+  /* ===== Kiếm Tiên Ngự Kiếm Phi Hành (Xianxia Flying Sword Cultivator) ===== */
+  .sword-immortal {
+    --immortal-w: clamp(150px, 15.5vw, 226px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--immortal-w);
+    aspect-ratio: 260 / 170;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.95;
+    filter: drop-shadow(0 8px 18px rgba(8, 20, 34, 0.42));
+    will-change: transform;
+  }
+  .sword-immortal-dir {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+    transition: transform 0.45s cubic-bezier(0.25, 0.85, 0.25, 1);
+    will-change: transform;
+  }
+  .sword-immortal-pitch {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 58%;
+    will-change: transform;
+  }
+  .sword-immortal-hover {
+    width: 100%;
+    height: 100%;
+    animation: immortal-hover 3.4s ease-in-out infinite;
+    will-change: transform;
+  }
+  .sword-immortal svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: block;
+  }
+  .immortal-robe-tail {
+    transform-origin: 122px 88px;
+    animation: immortal-robe-wave 1.8s ease-in-out infinite alternate;
+  }
+  .immortal-sleeve-back {
+    transform-origin: 126px 64px;
+    animation: immortal-sleeve-wave 1.5s ease-in-out infinite alternate;
+  }
+  .immortal-sleeve-front {
+    transform-origin: 112px 62px;
+    animation: immortal-sleeve-wave 1.35s ease-in-out infinite alternate-reverse;
+  }
+  .immortal-ribbon-top {
+    transform-origin: 126px 40px;
+    animation: immortal-ribbon-flutter 1.15s ease-in-out infinite alternate;
+  }
+  .immortal-ribbon-low {
+    transform-origin: 128px 54px;
+    animation: immortal-ribbon-flutter 1.4s ease-in-out infinite alternate-reverse;
+  }
+  .immortal-sword-qi {
+    transform-origin: 135px 128px;
+    animation: immortal-qi-pulse 1.2s ease-in-out infinite alternate;
+  }
+  .immortal-sub-sword-1 {
+    animation: immortal-sub-float-1 2.2s ease-in-out infinite alternate;
+  }
+  .immortal-sub-sword-2 {
+    animation: immortal-sub-float-2 2.5s ease-in-out infinite alternate;
+  }
+  @keyframes immortal-hover {
+    0%, 100% { transform: translate3d(0, 4px, 0) rotate(-0.8deg); }
+    50%      { transform: translate3d(0, -6px, 0) rotate(1.1deg); }
+  }
+  @keyframes immortal-robe-wave {
+    0%   { transform: rotate(-3.5deg) skewX(-2deg); }
+    100% { transform: rotate(5.5deg) skewX(4deg); }
+  }
+  @keyframes immortal-sleeve-wave {
+    0%   { transform: rotate(-5deg) scaleY(0.95); }
+    100% { transform: rotate(7deg) scaleY(1.05); }
+  }
+  @keyframes immortal-ribbon-flutter {
+    0%   { transform: rotate(-6deg) scaleY(0.92); }
+    100% { transform: rotate(8deg) scaleY(1.08); }
+  }
+  @keyframes immortal-qi-pulse {
+    0%   { opacity: 0.72; transform: scaleX(0.94); }
+    100% { opacity: 1; transform: scaleX(1.06); }
+  }
+  @keyframes immortal-sub-float-1 {
+    0%   { transform: translate3d(-3px, -3px, 0) rotate(-2deg); }
+    100% { transform: translate3d(4px, 4px, 0) rotate(2deg); }
+  }
+  @keyframes immortal-sub-float-2 {
+    0%   { transform: translate3d(4px, 3px, 0) rotate(2deg); }
+    100% { transform: translate3d(-3px, -4px, 0) rotate(-2deg); }
+  }
+
+  @media(max-width:600px){:root{--crane-size:clamp(115px,33vw,175px);--flight-duration:23s}.sword-immortal{--immortal-w:clamp(112px,30vw,158px)}}
+  @media(prefers-reduced-motion:reduce){.crane,.crane-dir,.crane-soar,.crane-bob,.crane-part,.fallback,.fallback .fallback-wing,.sword-immortal{animation:none!important;display:none!important}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage" aria-hidden="true">
+<svg class="fallback" id="fallback" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#d9cfb1"><path d="M43 174 160 158 209 162 300 166 340 174 301 182 207 184 159 179Z"/><path d="M290 170 380 174 559 201 396 193Z"/><path d="M290 173Q349 102 480 47Q435 112 342 180Z" class="fallback-wing"/><path d="M289 174Q344 207 487 284Q408 260 340 187Z" class="fallback-wing"/></g><path d="M42 174 0 176 40 179Z" fill="#cfbb7b"/>
+</svg>
+
+<!-- Nhân vật Tu Tiên Ngự Kiếm Phi Hành (local coords face LEFT <-, flipped via scaleX(-1) when flying RIGHT ->) -->
+<div class="sword-immortal" id="sword-immortal">
+  <div class="sword-immortal-dir" id="sword-immortal-dir">
+    <div class="sword-immortal-pitch" id="sword-immortal-pitch">
+      <div class="sword-immortal-hover">
+        <svg viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Distant companion spirit sword (Tử Mẫu Phi Kiếm #1 - upper rear) -->
+          <g class="immortal-sub-sword-1" opacity="0.78">
+            <path d="M150 28 L194 26 L206 28 L194 30 Z" fill="#9fe7f5"/>
+            <path d="M142 28 L151 25 L151 31 Z" fill="#f5d996"/>
+            <path d="M194 28 L238 27" stroke="#b6f0ff" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="10 6" opacity="0.75"/>
+          </g>
+
+          <!-- Distant companion spirit sword (Tử Mẫu Phi Kiếm #2 - lower rear) -->
+          <g class="immortal-sub-sword-2" opacity="0.72">
+            <path d="M162 145 L204 143 L216 145 L204 147 Z" fill="#9fe7f5"/>
+            <path d="M154 145 L163 142 L163 148 Z" fill="#f5d996"/>
+            <path d="M204 145 L246 144" stroke="#f5d996" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="8 6" opacity="0.7"/>
+          </g>
+
+          <!-- Main Flying Sword Qi Aura & Trailing Streamers (Kiếm Khí Thanh Vân) -->
+          <g class="immortal-sword-qi">
+            <!-- Soft outer golden-cyan sword aura -->
+            <ellipse cx="122" cy="128" rx="96" ry="8" fill="#7be0f2" opacity="0.18"/>
+            <ellipse cx="114" cy="128" rx="76" ry="4.5" fill="#ffe6a8" opacity="0.28"/>
+            <!-- Streaming sword qi wake ribbons behind the sword -->
+            <path d="M168 125 Q208 119 252 123" fill="none" stroke="#9ef0ff" stroke-width="2.2" stroke-linecap="round" opacity="0.82"/>
+            <path d="M174 129 Q216 134 258 128" fill="none" stroke="#f6d88e" stroke-width="1.8" stroke-linecap="round" opacity="0.78"/>
+            <path d="M156 132 Q198 139 242 135" fill="none" stroke="#8adff0" stroke-width="1.3" stroke-linecap="round" opacity="0.58"/>
+          </g>
+
+          <!-- Main Immortal Flying Sword (Thanh Vân Cổ Kiếm - tip pointing LEFT) -->
+          <g class="immortal-main-sword">
+            <!-- Sword tip & twin-bevel jade-steel blade -->
+            <polygon points="18,128 42,122.5 162,123.5 162,128" fill="#e6fbff"/>
+            <polygon points="18,128 42,133.5 162,132.5 162,128" fill="#7ec9dc"/>
+            <!-- Central golden ridge line & engraved runes -->
+            <line x1="22" y1="128" x2="162" y2="128" stroke="#fff7dc" stroke-width="1.6"/>
+            <path d="M56 128 L64 126 L72 128 L64 130 Z M86 128 L94 126 L102 128 L94 130 Z M116 128 L124 126 L132 128 L124 130 Z" fill="#f3cd78" opacity="0.9"/>
+            <!-- Ornate lotus-wing golden crossguard (Kiếm Cách) -->
+            <path d="M158 118 Q165 123 167 128 Q165 133 158 138 L164 134 L164 122 Z" fill="#f4cf80" stroke="#70511e" stroke-width="0.9"/>
+            <circle cx="161" cy="128" r="2.6" fill="#5ce1e6"/>
+            <!-- Hilt & pommel + trailing crimson-gold sword tassel (Kiếm Tua) -->
+            <rect x="165" y="126" width="17" height="4" rx="1.8" fill="#5c3d1e" stroke="#f3cf82" stroke-width="0.8"/>
+            <circle cx="184" cy="128" r="3.2" fill="#f4cf80" stroke="#6e4f1d" stroke-width="0.8"/>
+            <path d="M187 128 Q204 134 222 130 Q210 139 193 135 Z" fill="#d94b43" opacity="0.92"/>
+          </g>
+
+          <!-- Back flowing cape / outer celestial mantle (Hạcưởng Tiên Y) -->
+          <g class="immortal-sleeve-back">
+            <path d="M120 56 Q156 64 196 86 Q216 96 232 92 Q204 110 170 104 Q142 98 122 84 Z" fill="#d5e6f2" stroke="#536e85" stroke-width="0.9" opacity="0.92"/>
+            <path d="M126 60 Q162 72 214 93" fill="none" stroke="#f2cf88" stroke-width="1.2" opacity="0.75"/>
+          </g>
+
+          <!-- Lower billowing Daoist robe skirts & hem (Trường Bào) -->
+          <g class="immortal-robe-tail">
+            <!-- Deep azure under-robe -->
+            <path d="M108 82 L100 122 L128 123 L156 116 Q178 111 194 102 Q168 94 140 84 Z" fill="#233b54" stroke="#152536" stroke-width="0.9"/>
+            <!-- Ivory-white outer immortal robe skirt -->
+            <path d="M106 78 Q103 102 98 122 L134 122 Q160 116 184 105 Q154 92 128 78 Z" fill="#f4f8fb" stroke="#627b92" stroke-width="1"/>
+            <!-- Golden brocade trim along robe hem -->
+            <path d="M99 120 L133 120 Q158 114 180 104" fill="none" stroke="#e9c374" stroke-width="2"/>
+            <!-- Boots planted lightly on the sword blade -->
+            <path d="M96 122 L106 122 L104 126 L93 126 Z" fill="#1d2c3d"/>
+            <path d="M121 122 L131 122 L129 126 L119 126 Z" fill="#1d2c3d"/>
+          </g>
+
+          <!-- Upper Torso & Jade Waist Sash (Ngọc Đai) -->
+          <g class="immortal-torso">
+            <!-- Upright poised torso leaning slightly into the wind -->
+            <path d="M106 52 L124 53 L127 82 L105 81 Z" fill="#f7fafc" stroke="#5c748a" stroke-width="1"/>
+            <!-- Crossed V-collar in cyan & antique gold -->
+            <path d="M109 52 L116 68 L123 53" fill="none" stroke="#2c5375" stroke-width="2.4"/>
+            <path d="M110 52 L116 66 L122 53" fill="none" stroke="#f2cf88" stroke-width="1.1"/>
+            <!-- Jade-and-gold waist belt -->
+            <rect x="105" y="76" width="22" height="5.5" rx="2" fill="#274766" stroke="#f2cf88" stroke-width="1"/>
+            <circle cx="114" cy="78.7" r="2.2" fill="#7be0f2"/>
+          </g>
+
+          <!-- Floating Waist Ribbon & Jade Pendant Streamer -->
+          <g class="immortal-ribbon-low">
+            <path d="M124 78 Q158 83 196 75 Q216 70 232 76 Q206 85 174 87 Q146 88 124 81 Z" fill="#79d5e8" opacity="0.88"/>
+            <path d="M123 80 Q164 92 214 86" fill="none" stroke="#f5d792" stroke-width="1.3" opacity="0.85"/>
+          </g>
+
+          <!-- Front Wide Billowing Sleeve + Sword-Control Hand Mudra (Kiếm Quyết) -->
+          <g class="immortal-sleeve-front">
+            <!-- Wide hanging cyan-trimmed sleeve -->
+            <path d="M112 58 L95 62 Q98 82 114 90 Q128 84 122 64 Z" fill="#ffffff" stroke="#5b748a" stroke-width="1"/>
+            <path d="M96 63 Q99 80 113 87" fill="none" stroke="#eabee0" stroke-width="0"/>
+            <path d="M96 63 Q99 81 113 88" fill="none" stroke="#e8c274" stroke-width="1.6"/>
+            <!-- Forearm & two-finger sword mudra pointing forward (left) -->
+            <path d="M96 61 L85 59 L85 62 L95 64 Z" fill="#f7dcc2"/>
+            <!-- Golden qi spark at fingertips -->
+            <circle cx="82" cy="60" r="2.8" fill="#9ef0ff" opacity="0.9"/>
+            <circle cx="82" cy="60" r="1.4" fill="#fff9e6"/>
+          </g>
+
+          <!-- Head, Noble Profile, Topknot Crown (Kim Quan) & Flowing Long Hair -->
+          <g class="immortal-head">
+            <!-- Long wind-swept ink-black hair streaming backward -->
+            <g class="immortal-ribbon-top">
+              <path d="M121 36 Q154 38 192 29 Q214 24 234 30 Q204 42 172 45 Q144 47 121 43 Z" fill="#18222f"/>
+              <!-- Long white-gold hair ribbon -->
+              <path d="M122 33 Q162 27 212 18 Q186 31 152 35 Z" fill="#f6e3b4" opacity="0.92"/>
+            </g>
+            <!-- Head & jawline facing LEFT -->
+            <circle cx="114" cy="41" r="7.2" fill="#fae0c7" stroke="#8c6d53" stroke-width="0.8"/>
+            <!-- Noble dark hair framing temple & sidelocks -->
+            <path d="M108 36 Q113 31 121 35 Q123 41 119 47 L115 43 Q114 38 109 39 Z" fill="#18222f"/>
+            <path d="M109 42 Q107 51 111 58" fill="none" stroke="#18222f" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Subtle eye & serene brow -->
+            <line x1="108.5" y1="39.5" x2="112" y2="39" stroke="#18222f" stroke-width="1" stroke-linecap="round"/>
+            <!-- Golden Xianxia Hair Crown (Tiên Quan) & Hairpin -->
+            <path d="M113 31 L120 31 L118 24 L114 25 Z" fill="#f3cd78" stroke="#6e4f1d" stroke-width="0.8"/>
+            <line x1="111" y1="28" x2="124" y2="27" stroke="#fff3cf" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+(async () => {
+  try {
+    const response = await fetch('../../assets/creatures/crane/crane.svg', {cache:'no-cache'});
+    if (!response.ok) return;
+    const xml = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+    if (xml.querySelector('parsererror')) return;
+    const svg = xml.documentElement;
+    if (svg.localName !== 'svg') return;
+    // Preserve all path geometry but reject executable/foreign nodes and event attributes.
+    const allowedTags = new Set(['svg','g','path','circle','ellipse','line','polyline','polygon','rect','use','defs','title','desc']);
+    const allowedAttrs = new Set(['viewBox','width','height','xmlns','fill','fill-rule','stroke','stroke-width','stroke-linecap','stroke-linejoin','stroke-opacity','opacity','d','class','id','transform','cx','cy','r','rx','ry','x','y','x1','x2','y1','y2','points','href']);
+    if ([...svg.querySelectorAll('*')].some(el => !allowedTags.has(el.localName))) return;
+    for (const element of [svg, ...svg.querySelectorAll('*')]) {
+      for (const attr of [...element.attributes]) {
+        if (!allowedAttrs.has(attr.name) || /(?:javascript:|data:|url\s*\()/i.test(attr.value)) element.removeAttribute(attr.name);
+      }
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'crane';
+    const dirEl = document.createElement('div');
+    dirEl.className = 'crane-dir';
+    const soar = document.createElement('div');
+    soar.className = 'crane-soar';
+    const bob = document.createElement('div');
+    bob.className = 'crane-bob';
+    bob.appendChild(document.importNode(svg,true));
+    soar.appendChild(bob);
+    dirEl.appendChild(soar);
+    wrapper.appendChild(dirEl);
+    document.getElementById('stage').appendChild(wrapper);
+    document.getElementById('fallback').remove();
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Interactive scroll-reactive flight:
+    // - Scroll DOWN -> fly DOWN with head facing LEFT  (<- , scaleX(1),  nose pitched down)
+    // - Scroll UP   -> fly UP   with head facing RIGHT (-> , scaleX(-1), nose pitched up)
+    wrapper.classList.add('js-flight');
+
+    let vw = window.innerWidth;
+    let vh = window.innerHeight;
+    let size = wrapper.offsetWidth || 200;
+    const boundsY = () => {
+      const minY = Math.max(54, vh * 0.08);
+      const maxY = Math.max(minY + 80, vh - size - vh * 0.08);
+      return { minY, maxY };
+    };
+
+    let { minY, maxY } = boundsY();
+    let x = vw * 0.72;
+    let y = minY + (maxY - minY) * 0.14;
+    let targetY = y;
+    let facing = 1; // 1 = head LEFT (<-), -1 = head RIGHT (->)
+    let scrollBoostX = 0;
+    let pitchImpulse = 0;
+    let pitch = 0;
+
+    // Companion Sword Cultivator flight state (cruises counter-phase across the sky)
+    const immortalEl = document.getElementById('sword-immortal');
+    const immortalDirEl = document.getElementById('sword-immortal-dir');
+    const immortalPitchEl = document.getElementById('sword-immortal-pitch');
+    let imW = immortalEl ? (immortalEl.offsetWidth || 180) : 180;
+    let imX = vw * 0.18;
+    let imY = minY + (maxY - minY) * 0.52;
+    let imTargetY = imY;
+    let imFacing = -1; // starts flying RIGHT (->) while crane flies LEFT (<-)
+    let imBoostX = 0;
+    let imPitch = 0;
+
+    let lastTime = performance.now();
+    let elapsed = 0;
+
+    function applyScrollSignal(data) {
+      if (!data || data.type !== 'vtc-scroll') return;
+      const maxScroll = Number(data.scrollMax) || 0;
+      const scrollY = Math.max(0, Number(data.scrollY) || 0);
+      const deltaY = Number(data.deltaY) || 0;
+      const b = boundsY();
+      if (maxScroll > 10) {
+        const progress = Math.max(0, Math.min(1, scrollY / maxScroll));
+        targetY = b.minY + progress * (b.maxY - b.minY);
+        imTargetY = b.minY + (1 - progress * 0.65) * (b.maxY - b.minY) * 0.78;
+      } else if (Math.abs(deltaY) > 1.5) {
+        targetY = Math.max(b.minY, Math.min(b.maxY, targetY + deltaY * 0.45));
+        imTargetY = Math.max(b.minY, Math.min(b.maxY, imTargetY - deltaY * 0.32));
+      }
+
+      if (deltaY > 1.5) {
+        // Scrolling DOWN: crane glides left, sword cultivator accelerates right
+        facing = 1;
+        scrollBoostX = Math.max(-250, Math.min(0, scrollBoostX - Math.min(deltaY * 1.35, 85)));
+        pitchImpulse = -Math.min(20, 9 + Math.abs(deltaY) * 0.14);
+        imFacing = -1;
+        imBoostX = Math.min(260, Math.max(0, imBoostX + Math.min(deltaY * 1.4, 95)));
+      } else if (deltaY < -1.5) {
+        // Scrolling UP: crane climbs right, sword cultivator darts left
+        facing = -1;
+        scrollBoostX = Math.min(250, Math.max(0, scrollBoostX + Math.min(Math.abs(deltaY) * 1.35, 85)));
+        pitchImpulse = Math.min(20, 9 + Math.abs(deltaY) * 0.14);
+        imFacing = 1;
+        imBoostX = Math.max(-260, Math.min(0, imBoostX - Math.min(Math.abs(deltaY) * 1.4, 95)));
+      }
+    }
+
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin) return;
+      if (event.data?.type === 'vtc-scroll-sync') {
+        const maxScroll = Number(event.data.scrollMax) || 0;
+        const scrollY = Math.max(0, Number(event.data.scrollY) || 0);
+        const b = boundsY();
+        const progress = maxScroll > 10 ? Math.max(0, Math.min(1, scrollY / maxScroll)) : 0.14;
+        targetY = b.minY + progress * (b.maxY - b.minY);
+        imTargetY = b.minY + (1 - progress * 0.65) * (b.maxY - b.minY) * 0.78;
+        return;
+      }
+      applyScrollSignal(event.data);
+    });
+
+    window.addEventListener('resize', () => {
+      vw = window.innerWidth;
+      vh = window.innerHeight;
+      size = wrapper.offsetWidth || 200;
+      imW = immortalEl ? (immortalEl.offsetWidth || 180) : 180;
+      const b = boundsY();
+      targetY = Math.max(b.minY, Math.min(b.maxY, targetY));
+      imTargetY = Math.max(b.minY, Math.min(b.maxY, imTargetY));
+    });
+
+    function tick(now) {
+      const dt = Math.min(0.05, Math.max(0.001, (now - lastTime) / 1000));
+      lastTime = now;
+      elapsed += dt;
+
+      const baseSpeed = vw < 650 ? 40 : 54;
+      const dirSign = facing === 1 ? -1 : 1; // -1 moves LEFT (<-), +1 moves RIGHT (->)
+      scrollBoostX *= Math.exp(-dt * 3.8);
+      x += (dirSign * baseSpeed + scrollBoostX) * dt;
+
+      if (facing === 1 && x < -size - 45) x = vw + 35;
+      else if (facing === -1 && x > vw + 45) x = -size - 35;
+
+      const b = boundsY();
+      const gentleFloat = Math.sin(elapsed * 0.68) * 16;
+      const desiredY = Math.max(b.minY * 0.7, Math.min(b.maxY + 18, targetY + gentleFloat));
+      const prevY = y;
+      y += (desiredY - y) * (1 - Math.exp(-dt * 4.8));
+      const vy = (y - prevY) / dt;
+
+      pitchImpulse *= Math.exp(-dt * 3.1);
+      // Inside crane-dir (local coords face left): negative rotate = nose DOWN, positive rotate = nose UP
+      const velPitch = Math.max(-18, Math.min(18, -vy * 0.055));
+      const targetPitch = Math.max(-22, Math.min(22, velPitch * 0.65 + pitchImpulse * 0.55));
+      pitch += (targetPitch - pitch) * (1 - Math.exp(-dt * 7.5));
+
+      wrapper.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+      dirEl.style.transform = `scaleX(${facing})`;
+      soar.style.transform = `rotate(${pitch.toFixed(2)}deg)`;
+
+      // Update Sword Cultivator (Ngự Kiếm Phi Hành)
+      if (immortalEl) {
+        const imSpeed = vw < 650 ? 48 : 66;
+        const imDirSign = imFacing === 1 ? -1 : 1;
+        imBoostX *= Math.exp(-dt * 3.5);
+        imX += (imDirSign * imSpeed + imBoostX) * dt;
+        if (imFacing === 1 && imX < -imW - 55) imX = vw + 45;
+        else if (imFacing === -1 && imX > vw + 55) imX = -imW - 45;
+
+        const imWave = Math.cos(elapsed * 0.82) * 22;
+        const imDesiredY = Math.max(b.minY * 0.65, Math.min(b.maxY, imTargetY + imWave));
+        const imPrevY = imY;
+        imY += (imDesiredY - imY) * (1 - Math.exp(-dt * 4.2));
+        const imVy = (imY - imPrevY) / dt;
+        const imTargetPitch = Math.max(-15, Math.min(15, -imVy * 0.048));
+        imPitch += (imTargetPitch - imPitch) * (1 - Math.exp(-dt * 7.0));
+
+        immortalEl.style.transform = `translate3d(${imX.toFixed(1)}px, ${imY.toFixed(1)}px, 0)`;
+        immortalDirEl.style.transform = `scaleX(${imFacing})`;
+        immortalPitchEl.style.transform = `rotate(${imPitch.toFixed(2)}deg)`;
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    dirEl.style.transform = `scaleX(${facing})`;
+    wrapper.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    if (immortalEl) {
+      immortalDirEl.style.transform = `scaleX(${imFacing})`;
+      immortalEl.style.transform = `translate3d(${imX.toFixed(1)}px, ${imY.toFixed(1)}px, 0)`;
+    }
+    requestAnimationFrame(tick);
+  } catch (_) { /* Keep the non-network fallback illustration. */ }
+})();
+</script>
+</body>
+</html>

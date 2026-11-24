@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Long Mạch Thiên Sơn">
+<defs>
+  <linearGradient id="h_sky_11" x2="0" y2="1"><stop stop-color="#170d16"/><stop offset=".6" stop-color="#522d40"/><stop offset="1" stop-color="#080c14"/></linearGradient>
+  <radialGradient id="h_sun_11"><stop stop-color="#f2b77e" stop-opacity=".7"/><stop offset=".4" stop-color="#f2b77e" stop-opacity=".25"/><stop offset="1" stop-color="#f2b77e" stop-opacity="0"/></radialGradient>
+  <linearGradient id="h_fog_11" x2="0" y2="1"><stop stop-color="#b46e7c" stop-opacity=".3"/><stop offset="1" stop-color="#b46e7c" stop-opacity="0"/></linearGradient>
+  <linearGradient id="h_bottom_11" x2="0" y2="1"><stop stop-color="transparent"/><stop offset="1" stop-color="#070a10" stop-opacity=".92"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#h_sky_11)"/>
+<g fill="#f2b77e"><circle cx="262" cy="252" r="0.8" opacity="0.27"/><circle cx="1029" cy="400" r="1.8" opacity="0.31"/><circle cx="603" cy="317" r="0.8" opacity="0.27"/><circle cx="1187" cy="435" r="0.8" opacity="0.35"/><circle cx="206" cy="82" r="0.8" opacity="0.53"/><circle cx="1369" cy="231" r="1.8" opacity="0.25"/><circle cx="112" cy="382" r="0.8" opacity="0.59"/><circle cx="1545" cy="335" r="0.8" opacity="0.59"/><circle cx="1265" cy="352" r="1.2" opacity="0.62"/><circle cx="1440" cy="56" r="1.8" opacity="0.24"/><circle cx="618" cy="124" r="1.2" opacity="0.68"/><circle cx="577" cy="302" r="1.8" opacity="0.46"/><circle cx="1509" cy="127" r="0.8" opacity="0.43"/><circle cx="363" cy="465" r="0.8" opacity="0.33"/><circle cx="783" cy="21" r="0.8" opacity="0.56"/><circle cx="914" cy="244" r="1.8" opacity="0.22"/><circle cx="1552" cy="56" r="1.8" opacity="0.63"/><circle cx="689" cy="297" r="0.8" opacity="0.21"/><circle cx="1043" cy="328" r="0.8" opacity="0.66"/><circle cx="887" cy="115" r="0.8" opacity="0.65"/><circle cx="140" cy="278" r="0.8" opacity="0.29"/><circle cx="166" cy="21" r="0.8" opacity="0.36"/><circle cx="1334" cy="145" r="1.8" opacity="0.59"/><circle cx="1346" cy="244" r="1.2" opacity="0.46"/><circle cx="889" cy="466" r="0.8" opacity="0.47"/><circle cx="1455" cy="201" r="1.8" opacity="0.64"/><circle cx="884" cy="35" r="1.2" opacity="0.61"/><circle cx="671" cy="314" r="0.8" opacity="0.45"/><circle cx="1063" cy="137" r="1.8" opacity="0.51"/><circle cx="960" cy="242" r="1.8" opacity="0.56"/><circle cx="323" cy="372" r="0.8" opacity="0.39"/><circle cx="1553" cy="449" r="0.8" opacity="0.23"/><circle cx="578" cy="293" r="1.2" opacity="0.36"/><circle cx="449" cy="76" r="0.8" opacity="0.41"/><circle cx="1447" cy="423" r="1.2" opacity="0.39"/><circle cx="1330" cy="251" r="1.8" opacity="0.69"/><circle cx="106" cy="215" r="1.2" opacity="0.49"/><circle cx="1352" cy="400" r="1.8" opacity="0.23"/><circle cx="262" cy="391" r="0.8" opacity="0.64"/><circle cx="475" cy="189" r="1.2" opacity="0.63"/><circle cx="252" cy="391" r="1.8" opacity="0.47"/><circle cx="559" cy="366" r="1.8" opacity="0.69"/><circle cx="1505" cy="37" r="0.8" opacity="0.22"/><circle cx="704" cy="206" r="0.8" opacity="0.43"/><circle cx="693" cy="190" r="0.8" opacity="0.30"/><circle cx="679" cy="22" r="1.2" opacity="0.55"/><circle cx="245" cy="335" r="1.8" opacity="0.64"/><circle cx="853" cy="229" r="1.2" opacity="0.45"/></g>
+<circle cx="380" cy="220" r="320" fill="url(#h_sun_11)"/>
+<circle cx="380" cy="220" r="88" fill="#f2b77e" opacity=".8"/>
+<g transform="translate(240 140) scale(0.65)" opacity="0.85">
+        <path d="M0 0 C20 -30 60 -40 100 -20 C80 -10 60 -5 40 5 C70 15 90 35 110 60 C80 40 50 25 20 15 C-10 25 -30 40 -50 60 C-40 30 -20 10 0 0 Z" fill="#f2b77e"/>
+    </g>
+<path d="M-80 620 L180 480 L420 580 L680 417 L940 590 L1180 483 L1420 560 L1680 430 V900 H-80 Z" fill="#522d40" opacity=".55"/>
+<path d="M-80 690 L160 511 L480 670 L760 549 L1040 680 L1320 543 L1680 640 V900 H-80 Z" fill="#170d16" opacity=".7"/>
+<g transform="translate(1050 470) scale(1.1)" stroke="#f2b77e" stroke-width="2.5" fill="#522d40" opacity=".75">
+        <path d="M-60 10 Q0 -12 60 10 L40 16 H-40 Z"/>
+        <path d="M-34 16 H34 V90 H-34 Z"/>
+        <path d="M-48 -16 Q0 -34 48 -16 L28 -10 H-28 Z"/>
+        <path d="M-25 -10 H25 V10 H-25 Z"/>
+        <path d="M-34 -38 Q0 -60 34 -38 L0 -46 Z"/>
+        <path d="M-48 90 H48"/>
+    </g>
+<path d="M-80 760 L240 630 L560 770 L890 620 L1210 750 L1520 620 L1680 730 V900 H-80 Z" fill="#0a121c" opacity=".88"/>
+<path d="M-80 810 Q320 730 800 780 T1680 760 V900 H-80 Z" fill="url(#h_fog_11)"/>
+<rect y="600" width="1600" height="300" fill="url(#h_bottom_11)"/>
+<!-- Decorative frame & Seal -->
+<rect x="24" y="24" width="1552" height="852" rx="14" stroke="#f2b77e" stroke-opacity=".22" stroke-width="2" fill="none"/>
+<g transform="translate(1490, 80)" opacity=".82">
+  <rect x="-18" y="-18" width="36" height="110" rx="4" fill="#a42828" stroke="#f2b77e" stroke-width="1.5" opacity=".85"/>
+  <text x="0" y="16" fill="#fff" font-family="'Noto Serif',serif" font-size="15" font-weight="bold" text-anchor="middle" letter-spacing="4" writing-mode="vertical-rl">龍脈天山</text>
+</g>
+<g transform="translate(70, 810)">
+  <text x="0" y="0" fill="#f2b77e" font-family="'Noto Serif',Georgia,serif" font-size="34" font-weight="700" letter-spacing="2" opacity=".92">Long Mạch Thiên Sơn</text>
+</g>
+</svg>

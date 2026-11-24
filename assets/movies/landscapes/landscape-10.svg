@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Thanh Liên Đạo Tâm">
+<defs>
+  <linearGradient id="h_sky_10" x2="0" y2="1"><stop stop-color="#0c1720"/><stop offset=".6" stop-color="#2a5964"/><stop offset="1" stop-color="#080c14"/></linearGradient>
+  <radialGradient id="h_sun_10"><stop stop-color="#e5c997" stop-opacity=".7"/><stop offset=".4" stop-color="#e5c997" stop-opacity=".25"/><stop offset="1" stop-color="#e5c997" stop-opacity="0"/></radialGradient>
+  <linearGradient id="h_fog_10" x2="0" y2="1"><stop stop-color="#9db0b1" stop-opacity=".3"/><stop offset="1" stop-color="#9db0b1" stop-opacity="0"/></linearGradient>
+  <linearGradient id="h_bottom_10" x2="0" y2="1"><stop stop-color="transparent"/><stop offset="1" stop-color="#070a10" stop-opacity=".92"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#h_sky_10)"/>
+<g fill="#e5c997"><circle cx="1442" cy="432" r="1.8" opacity="0.34"/><circle cx="899" cy="228" r="0.8" opacity="0.59"/><circle cx="358" cy="348" r="1.2" opacity="0.65"/><circle cx="1339" cy="115" r="1.8" opacity="0.64"/><circle cx="803" cy="389" r="1.8" opacity="0.64"/><circle cx="1500" cy="234" r="1.8" opacity="0.32"/><circle cx="714" cy="280" r="1.2" opacity="0.42"/><circle cx="1244" cy="150" r="0.8" opacity="0.67"/><circle cx="210" cy="457" r="0.8" opacity="0.40"/><circle cx="1149" cy="140" r="1.8" opacity="0.31"/><circle cx="939" cy="476" r="1.8" opacity="0.28"/><circle cx="1266" cy="304" r="1.8" opacity="0.65"/><circle cx="1469" cy="183" r="1.2" opacity="0.49"/><circle cx="683" cy="112" r="1.2" opacity="0.30"/><circle cx="375" cy="374" r="0.8" opacity="0.65"/><circle cx="764" cy="58" r="0.8" opacity="0.58"/><circle cx="919" cy="189" r="0.8" opacity="0.55"/><circle cx="510" cy="282" r="0.8" opacity="0.55"/><circle cx="1056" cy="418" r="0.8" opacity="0.28"/><circle cx="97" cy="256" r="0.8" opacity="0.56"/><circle cx="356" cy="32" r="1.2" opacity="0.48"/><circle cx="225" cy="74" r="1.2" opacity="0.46"/><circle cx="911" cy="296" r="1.2" opacity="0.57"/><circle cx="833" cy="329" r="0.8" opacity="0.68"/><circle cx="1211" cy="348" r="0.8" opacity="0.56"/><circle cx="1509" cy="439" r="0.8" opacity="0.57"/><circle cx="1293" cy="213" r="0.8" opacity="0.21"/><circle cx="82" cy="192" r="0.8" opacity="0.35"/><circle cx="1426" cy="72" r="1.8" opacity="0.50"/><circle cx="615" cy="284" r="0.8" opacity="0.26"/><circle cx="228" cy="454" r="0.8" opacity="0.61"/><circle cx="886" cy="379" r="1.8" opacity="0.55"/><circle cx="1021" cy="62" r="1.2" opacity="0.67"/><circle cx="1005" cy="476" r="1.2" opacity="0.39"/><circle cx="298" cy="243" r="0.8" opacity="0.69"/><circle cx="98" cy="194" r="1.8" opacity="0.29"/><circle cx="1219" cy="23" r="1.2" opacity="0.69"/><circle cx="1539" cy="423" r="1.8" opacity="0.65"/><circle cx="579" cy="286" r="1.2" opacity="0.39"/><circle cx="1339" cy="341" r="0.8" opacity="0.47"/><circle cx="848" cy="79" r="1.2" opacity="0.41"/><circle cx="1300" cy="304" r="1.8" opacity="0.58"/><circle cx="1191" cy="49" r="1.2" opacity="0.53"/><circle cx="1510" cy="133" r="0.8" opacity="0.44"/><circle cx="440" cy="222" r="1.2" opacity="0.32"/><circle cx="556" cy="401" r="0.8" opacity="0.23"/><circle cx="1428" cy="271" r="0.8" opacity="0.55"/><circle cx="296" cy="253" r="1.8" opacity="0.61"/></g>
+<circle cx="1260" cy="280" r="320" fill="url(#h_sun_10)"/>
+<circle cx="1260" cy="280" r="88" fill="#e5c997" opacity=".8"/>
+<g transform="translate(1120 200) scale(0.65)" opacity="0.85">
+        <path d="M0 0 C20 -30 60 -40 100 -20 C80 -10 60 -5 40 5 C70 15 90 35 110 60 C80 40 50 25 20 15 C-10 25 -30 40 -50 60 C-40 30 -20 10 0 0 Z" fill="#e5c997"/>
+    </g>
+<path d="M-80 620 L180 450 L420 580 L680 400 L940 590 L1180 460 L1420 560 L1680 430 V900 H-80 Z" fill="#2a5964" opacity=".55"/>
+<path d="M-80 690 L160 560 L480 670 L760 530 L1040 680 L1320 530 L1680 640 V900 H-80 Z" fill="#0c1720" opacity=".7"/>
+<g transform="translate(460 470) scale(1.1)" stroke="#e5c997" stroke-width="2.5" fill="#2a5964" opacity=".75">
+        <path d="M-60 10 Q0 -12 60 10 L40 16 H-40 Z"/>
+        <path d="M-34 16 H34 V90 H-34 Z"/>
+        <path d="M-48 -16 Q0 -34 48 -16 L28 -10 H-28 Z"/>
+        <path d="M-25 -10 H25 V10 H-25 Z"/>
+        <path d="M-34 -38 Q0 -60 34 -38 L0 -46 Z"/>
+        <path d="M-48 90 H48"/>
+    </g>
+<path d="M-80 760 L240 630 L560 770 L890 620 L1210 750 L1520 620 L1680 730 V900 H-80 Z" fill="#0a121c" opacity=".88"/>
+<path d="M-80 810 Q320 730 800 780 T1680 760 V900 H-80 Z" fill="url(#h_fog_10)"/>
+<rect y="600" width="1600" height="300" fill="url(#h_bottom_10)"/>
+<!-- Decorative frame & Seal -->
+<rect x="24" y="24" width="1552" height="852" rx="14" stroke="#e5c997" stroke-opacity=".22" stroke-width="2" fill="none"/>
+<g transform="translate(1490, 80)" opacity=".82">
+  <rect x="-18" y="-18" width="36" height="110" rx="4" fill="#a42828" stroke="#e5c997" stroke-width="1.5" opacity=".85"/>
+  <text x="0" y="16" fill="#fff" font-family="'Noto Serif',serif" font-size="15" font-weight="bold" text-anchor="middle" letter-spacing="4" writing-mode="vertical-rl">青蓮道心</text>
+</g>
+<g transform="translate(70, 810)">
+  <text x="0" y="0" fill="#e5c997" font-family="'Noto Serif',Georgia,serif" font-size="34" font-weight="700" letter-spacing="2" opacity=".92">Thanh Liên Đạo Tâm</text>
+</g>
+</svg>

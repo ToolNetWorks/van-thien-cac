@@ -1,0 +1,243 @@
+[
+  {
+    "id": "thien-menh-truong-sinh",
+    "title": "Thiên Mệnh Trường Sinh",
+    "subtitle": "Khi thiên đạo đổi chủ, kẻ phàm nhân nghịch mệnh.",
+    "genre": [
+      "Tu tiên",
+      "Huyền huyễn"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2026,
+    "rating": 9.4,
+    "status": "Đang cập nhật",
+    "episodes": 36,
+    "availableEpisodes": 18,
+    "featured": true,
+    "poster": "movies/covers/cover-01.svg",
+    "poster_vertical": "movies/covers/cover-01.svg",
+    "cover_horizontal": "movies/landscapes/landscape-01.svg",
+    "description": "Một thiếu niên bị tước linh căn bước vào tiên lộ bằng chính ý chí của mình. Giữa những tông môn tranh quyền, bí mật của Thiên Mệnh dần thức tỉnh.",
+    "sources": {}
+  },
+  {
+    "id": "kiem-pha-cuu-thien",
+    "title": "Kiếm Phá Cửu Thiên",
+    "subtitle": "Một kiếm mở đường phi thăng.",
+    "genre": [
+      "Kiếm hiệp",
+      "Tu tiên"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2026,
+    "rating": 9.1,
+    "status": "Đang cập nhật",
+    "episodes": 52,
+    "availableEpisodes": 24,
+    "poster": "movies/covers/cover-02.svg",
+    "poster_vertical": "movies/covers/cover-02.svg",
+    "cover_horizontal": "movies/landscapes/landscape-02.svg",
+    "description": "Chàng kiếm tu lang bạt tìm lại lời thề giữa biển mây, vượt qua cửu trọng thiên để giải lời nguyền cổ.",
+    "sources": {}
+  },
+  {
+    "id": "van-co-than-de",
+    "title": "Vạn Cổ Thần Đế",
+    "subtitle": "Đế mệnh ngủ quên giữa hồng trần.",
+    "genre": [
+      "Huyền huyễn",
+      "Tiên hiệp"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2026,
+    "rating": 8.9,
+    "status": "Đang cập nhật",
+    "episodes": 40,
+    "availableEpisodes": 16,
+    "poster": "movies/covers/cover-03.svg",
+    "poster_vertical": "movies/covers/cover-03.svg",
+    "cover_horizontal": "movies/landscapes/landscape-03.svg",
+    "description": "Bước ra khỏi phong ấn vạn năm, một vị thần đế trở lại trong thân phận một tu sĩ vô danh.",
+    "sources": {}
+  },
+  {
+    "id": "van-hac-tien-tong",
+    "title": "Vân Hạc Tiên Tông",
+    "subtitle": "Giấc mộng trường sinh dưới cánh hạc.",
+    "genre": [
+      "Tu tiên",
+      "Phiêu lưu"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2025,
+    "rating": 9.3,
+    "status": "Hoàn thành",
+    "episodes": 30,
+    "availableEpisodes": 30,
+    "poster": "movies/covers/cover-04.svg",
+    "poster_vertical": "movies/covers/cover-04.svg",
+    "cover_horizontal": "movies/landscapes/landscape-04.svg",
+    "description": "Một đệ tử ngoại môn nhận được chiếc linh vũ của hạc tiên và bắt đầu hành trình đi qua bảy đại bí cảnh.",
+    "sources": {}
+  },
+  {
+    "id": "nghich-thien-dan-dao",
+    "title": "Nghịch Thiên Đan Đạo",
+    "subtitle": "Một viên linh đan đổi cả càn khôn.",
+    "genre": [
+      "Luyện đan",
+      "Tu tiên"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2026,
+    "rating": 8.8,
+    "status": "Đang cập nhật",
+    "episodes": 28,
+    "availableEpisodes": 12,
+    "poster": "movies/covers/cover-05.svg",
+    "poster_vertical": "movies/covers/cover-05.svg",
+    "cover_horizontal": "movies/landscapes/landscape-05.svg",
+    "description": "Thiên tài luyện đan mất hết tu vi, dùng một bí phương thất truyền để xây lại đạo tâm.",
+    "sources": {}
+  },
+  {
+    "id": "hoa-than-co-vuc",
+    "title": "Hóa Thần Cổ Vực",
+    "subtitle": "Nơi cổ vực thức tỉnh những kẻ bất tử.",
+    "genre": [
+      "Huyền huyễn",
+      "Phiêu lưu"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2025,
+    "rating": 9.0,
+    "status": "Hoàn thành",
+    "episodes": 26,
+    "availableEpisodes": 26,
+    "poster": "movies/covers/cover-06.svg",
+    "poster_vertical": "movies/covers/cover-06.svg",
+    "cover_horizontal": "movies/landscapes/landscape-06.svg",
+    "description": "Trong vùng đất bị lãng quên, mỗi phong ấn được phá bỏ lại mở ra một bí mật khác của các vị cổ thần.",
+    "sources": {}
+  },
+  {
+    "id": "cuu-u-than-hoa",
+    "title": "Cửu U Thần Hỏa",
+    "subtitle": "Đốt cháy bóng tối, soi sáng tiên đồ.",
+    "genre": [
+      "Huyền huyễn",
+      "Tiên hiệp"
+    ],
+    "format": "Phim bộ",
+    "year": 2026,
+    "rating": 8.7,
+    "status": "Đang cập nhật",
+    "episodes": 48,
+    "availableEpisodes": 9,
+    "poster": "movies/covers/cover-07.svg",
+    "poster_vertical": "movies/covers/cover-07.svg",
+    "cover_horizontal": "movies/landscapes/landscape-07.svg",
+    "description": "Từ vực sâu Cửu U, một ngọn thần hỏa trở thành chìa khóa mở cánh cửa cổ điện.",
+    "sources": {}
+  },
+  {
+    "id": "luan-hoi-chi-mon",
+    "title": "Luân Hồi Chi Môn",
+    "subtitle": "Mỗi kiếp một lời hẹn.",
+    "genre": [
+      "Tiên hiệp",
+      "Tình cảm"
+    ],
+    "format": "Hoạt hình 2D",
+    "year": 2025,
+    "rating": 9.2,
+    "status": "Hoàn thành",
+    "episodes": 24,
+    "availableEpisodes": 24,
+    "poster": "movies/covers/cover-08.svg",
+    "poster_vertical": "movies/covers/cover-08.svg",
+    "cover_horizontal": "movies/landscapes/landscape-08.svg",
+    "description": "Hai người tu hành gặp nhau qua nhiều vòng luân hồi và lần theo dấu ấn của một tiên khí đã thất lạc.",
+    "sources": {}
+  },
+  {
+    "id": "tinh-ha-kiem-ton",
+    "title": "Tinh Hà Kiếm Tôn",
+    "subtitle": "Đạp tinh hà, hỏi trường sinh.",
+    "genre": [
+      "Kiếm hiệp",
+      "Huyền huyễn"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2026,
+    "rating": 9.1,
+    "status": "Đang cập nhật",
+    "episodes": 60,
+    "availableEpisodes": 33,
+    "poster": "movies/covers/cover-09.svg",
+    "poster_vertical": "movies/covers/cover-09.svg",
+    "cover_horizontal": "movies/landscapes/landscape-09.svg",
+    "description": "Một kiếm khách đứng giữa tinh hà mang trên mình kỳ vọng của cả kiếm tông trong cuộc đại chiến Thiên Ngoại.",
+    "sources": {}
+  },
+  {
+    "id": "thanh-lien-dao-tam",
+    "title": "Thanh Liên Đạo Tâm",
+    "subtitle": "Một đóa sen nở, muôn đạo quy nguyên.",
+    "genre": [
+      "Tu tiên",
+      "Tình cảm"
+    ],
+    "format": "Hoạt hình 2D",
+    "year": 2025,
+    "rating": 8.9,
+    "status": "Hoàn thành",
+    "episodes": 20,
+    "availableEpisodes": 20,
+    "poster": "movies/covers/cover-10.svg",
+    "poster_vertical": "movies/covers/cover-10.svg",
+    "cover_horizontal": "movies/landscapes/landscape-10.svg",
+    "description": "Trong hồ sen cổ, một nữ tu tìm thấy bí mật về đạo tâm của chính mình.",
+    "sources": {}
+  },
+  {
+    "id": "long-mach-thien-son",
+    "title": "Long Mạch Thiên Sơn",
+    "subtitle": "Giữ long mạch giữa cơn sóng loạn.",
+    "genre": [
+      "Phiêu lưu",
+      "Huyền huyễn"
+    ],
+    "format": "Phim bộ",
+    "year": 2026,
+    "rating": 8.8,
+    "status": "Đang cập nhật",
+    "episodes": 36,
+    "availableEpisodes": 14,
+    "poster": "movies/covers/cover-11.svg",
+    "poster_vertical": "movies/covers/cover-11.svg",
+    "cover_horizontal": "movies/landscapes/landscape-11.svg",
+    "description": "Một người giữ núi được giao bảo vệ long mạch thiêng trước những thế lực muốn thay đổi thiên cơ.",
+    "sources": {}
+  },
+  {
+    "id": "tuyet-anh-tien-lo",
+    "title": "Tuyết Ảnh Tiên Lộ",
+    "subtitle": "Dưới tuyết trắng, cổ đạo vẫn chưa tàn.",
+    "genre": [
+      "Kiếm hiệp",
+      "Tiên hiệp"
+    ],
+    "format": "Hoạt hình 3D",
+    "year": 2025,
+    "rating": 9.0,
+    "status": "Hoàn thành",
+    "episodes": 32,
+    "availableEpisodes": 32,
+    "poster": "movies/covers/cover-12.svg",
+    "poster_vertical": "movies/covers/cover-12.svg",
+    "cover_horizontal": "movies/landscapes/landscape-12.svg",
+    "description": "Con đường lên tuyết sơn mở ra cho một nữ kiếm khách mang theo di ngôn của vị sư phụ mất tích.",
+    "sources": {}
+  }
+]

@@ -1,0 +1,39 @@
+<header class="site-header">
+  <div class="container nav-inner">
+    <a href="#/" class="brand" aria-label="Vân Thiên Các — Trang chủ">
+      <span class="brand-mark"><svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><path d="M7 32Q22 8 37 32" stroke="#dbbc83" stroke-width="2"/><path d="M12 31 22 16 32 31M13 35h18M20 13h4" stroke="#f7e7c5" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <span class="brand-name">VÂN THIÊN CÁC<small>THẾ GIỚI TIÊN HIỆP</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Điều hướng chính">
+      <a class="nav-link" data-nav="home" href="#/">Trang chủ</a>
+      <a class="nav-link" data-nav="library" href="#/kho-phim">Kho phim</a>
+      <a class="nav-link" data-nav="3d" href="#/kho-phim?loc=3d">Hoạt hình 3D</a>
+      <a class="nav-link" data-nav="phim-bo" href="#/kho-phim?loc=phim-bo">Phim bộ</a>
+      <a class="nav-link" data-nav="favorite" href="#/yeu-thich">Tủ phim</a>
+      <a class="nav-link nav-link-cultivate" data-nav="cultivate" href="#/tu-luyen">Tặng Linh Thạch</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="cmd-trigger" type="button" data-action="search" aria-label="Tìm kiếm nhanh (Ctrl+K)">
+        <svg class="icon" aria-hidden="true"><use href="./assets/icons/icon-sprite.svg#i-search"></use></svg>
+        <span class="cmd-trigger-text">Tìm phim…</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+      <a class="desk-fav" data-nav="favorite-btn" href="#/yeu-thich" aria-label="Tủ phim cá nhân"><span>Tủ phim<span data-fav-count></span></span></a>
+      <div class="nav-account-slot" data-account-slot>
+        <button class="account-trigger" type="button" data-action="open-auth" data-mode="login">Đăng nhập</button>
+      </div>
+      <button class="icon-btn menu-toggle" type="button" data-action="menu" aria-controls="mobile-nav" aria-expanded="false" aria-label="Mở menu">
+        <svg class="icon" aria-hidden="true"><use href="./assets/icons/icon-sprite.svg#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Điều hướng điện thoại" hidden>
+    <a href="#/">Trang chủ</a>
+    <a href="#/kho-phim">Kho phim</a>
+    <a href="#/kho-phim?loc=3d">Hoạt hình 3D</a>
+    <a href="#/kho-phim?loc=2d">Hoạt hình 2D</a>
+    <a href="#/kho-phim?loc=phim-bo">Phim bộ</a>
+    <a href="#/yeu-thich">Tủ phim cá nhân<span data-fav-count></span></a>
+    <a href="#/tu-luyen">Tu luyện · Tặng Linh Thạch</a>
+  </nav>
+</header>

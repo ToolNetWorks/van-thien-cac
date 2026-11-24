@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Tinh Hà Kiếm Tôn">
+<defs>
+  <linearGradient id="h_sky_9" x2="0" y2="1"><stop stop-color="#10101b"/><stop offset=".6" stop-color="#303e5f"/><stop offset="1" stop-color="#080c14"/></linearGradient>
+  <radialGradient id="h_sun_9"><stop stop-color="#d8c189" stop-opacity=".7"/><stop offset=".4" stop-color="#d8c189" stop-opacity=".25"/><stop offset="1" stop-color="#d8c189" stop-opacity="0"/></radialGradient>
+  <linearGradient id="h_fog_9" x2="0" y2="1"><stop stop-color="#737da5" stop-opacity=".3"/><stop offset="1" stop-color="#737da5" stop-opacity="0"/></linearGradient>
+  <linearGradient id="h_bottom_9" x2="0" y2="1"><stop stop-color="transparent"/><stop offset="1" stop-color="#070a10" stop-opacity=".92"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#h_sky_9)"/>
+<g fill="#d8c189"><circle cx="1483" cy="411" r="1.2" opacity="0.31"/><circle cx="376" cy="379" r="0.8" opacity="0.26"/><circle cx="597" cy="306" r="1.8" opacity="0.55"/><circle cx="1391" cy="347" r="1.2" opacity="0.39"/><circle cx="144" cy="323" r="1.2" opacity="0.21"/><circle cx="684" cy="78" r="0.8" opacity="0.50"/><circle cx="443" cy="159" r="0.8" opacity="0.22"/><circle cx="372" cy="420" r="1.2" opacity="0.39"/><circle cx="1026" cy="251" r="1.2" opacity="0.55"/><circle cx="1251" cy="408" r="1.8" opacity="0.70"/><circle cx="463" cy="454" r="1.8" opacity="0.53"/><circle cx="720" cy="43" r="0.8" opacity="0.31"/><circle cx="1487" cy="155" r="1.2" opacity="0.39"/><circle cx="1490" cy="205" r="0.8" opacity="0.31"/><circle cx="487" cy="357" r="1.2" opacity="0.31"/><circle cx="1219" cy="323" r="1.2" opacity="0.50"/><circle cx="351" cy="234" r="0.8" opacity="0.42"/><circle cx="1409" cy="367" r="1.2" opacity="0.55"/><circle cx="208" cy="363" r="1.8" opacity="0.47"/><circle cx="825" cy="110" r="0.8" opacity="0.44"/><circle cx="281" cy="324" r="1.2" opacity="0.67"/><circle cx="971" cy="476" r="1.8" opacity="0.54"/><circle cx="1474" cy="319" r="1.2" opacity="0.46"/><circle cx="306" cy="294" r="1.2" opacity="0.42"/><circle cx="340" cy="184" r="1.2" opacity="0.35"/><circle cx="1200" cy="206" r="0.8" opacity="0.62"/><circle cx="500" cy="45" r="0.8" opacity="0.69"/><circle cx="60" cy="104" r="0.8" opacity="0.30"/><circle cx="404" cy="419" r="0.8" opacity="0.54"/><circle cx="166" cy="314" r="1.2" opacity="0.66"/><circle cx="116" cy="258" r="1.2" opacity="0.64"/><circle cx="481" cy="383" r="0.8" opacity="0.52"/><circle cx="233" cy="59" r="1.2" opacity="0.44"/><circle cx="1425" cy="254" r="0.8" opacity="0.35"/><circle cx="1329" cy="100" r="1.8" opacity="0.64"/><circle cx="941" cy="195" r="1.8" opacity="0.52"/><circle cx="636" cy="208" r="1.2" opacity="0.31"/><circle cx="650" cy="295" r="1.2" opacity="0.46"/><circle cx="1082" cy="215" r="1.2" opacity="0.29"/><circle cx="265" cy="38" r="1.2" opacity="0.61"/><circle cx="201" cy="113" r="1.2" opacity="0.42"/><circle cx="1117" cy="30" r="1.8" opacity="0.64"/><circle cx="736" cy="238" r="0.8" opacity="0.25"/><circle cx="217" cy="87" r="0.8" opacity="0.26"/><circle cx="965" cy="113" r="1.2" opacity="0.31"/><circle cx="1450" cy="87" r="0.8" opacity="0.29"/><circle cx="1130" cy="230" r="1.2" opacity="0.56"/><circle cx="236" cy="307" r="1.8" opacity="0.48"/></g>
+<circle cx="480" cy="240" r="320" fill="url(#h_sun_9)"/>
+<circle cx="480" cy="240" r="88" fill="#d8c189" opacity=".8"/>
+<g transform="translate(340 160) scale(0.65)" opacity="0.85">
+        <path d="M0 0 C20 -30 60 -40 100 -20 C80 -10 60 -5 40 5 C70 15 90 35 110 60 C80 40 50 25 20 15 C-10 25 -30 40 -50 60 C-40 30 -20 10 0 0 Z" fill="#d8c189"/>
+    </g>
+<path d="M-80 620 L180 420 L420 580 L680 463 L940 590 L1180 437 L1420 560 L1680 430 V900 H-80 Z" fill="#303e5f" opacity=".55"/>
+<path d="M-80 690 L160 549 L480 670 L760 511 L1040 680 L1320 577 L1680 640 V900 H-80 Z" fill="#10101b" opacity=".7"/>
+<g transform="translate(1050 470) scale(1.1)" stroke="#d8c189" stroke-width="2.5" fill="#303e5f" opacity=".75">
+        <path d="M-60 10 Q0 -12 60 10 L40 16 H-40 Z"/>
+        <path d="M-34 16 H34 V90 H-34 Z"/>
+        <path d="M-48 -16 Q0 -34 48 -16 L28 -10 H-28 Z"/>
+        <path d="M-25 -10 H25 V10 H-25 Z"/>
+        <path d="M-34 -38 Q0 -60 34 -38 L0 -46 Z"/>
+        <path d="M-48 90 H48"/>
+    </g>
+<path d="M-80 760 L240 630 L560 770 L890 620 L1210 750 L1520 620 L1680 730 V900 H-80 Z" fill="#0a121c" opacity=".88"/>
+<path d="M-80 810 Q320 730 800 780 T1680 760 V900 H-80 Z" fill="url(#h_fog_9)"/>
+<rect y="600" width="1600" height="300" fill="url(#h_bottom_9)"/>
+<!-- Decorative frame & Seal -->
+<rect x="24" y="24" width="1552" height="852" rx="14" stroke="#d8c189" stroke-opacity=".22" stroke-width="2" fill="none"/>
+<g transform="translate(1490, 80)" opacity=".82">
+  <rect x="-18" y="-18" width="36" height="110" rx="4" fill="#a42828" stroke="#d8c189" stroke-width="1.5" opacity=".85"/>
+  <text x="0" y="16" fill="#fff" font-family="'Noto Serif',serif" font-size="15" font-weight="bold" text-anchor="middle" letter-spacing="4" writing-mode="vertical-rl">星河劍尊</text>
+</g>
+<g transform="translate(70, 810)">
+  <text x="0" y="0" fill="#d8c189" font-family="'Noto Serif',Georgia,serif" font-size="34" font-weight="700" letter-spacing="2" opacity=".92">Tinh Hà Kiếm Tôn</text>
+</g>
+</svg>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#1a2634" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Vân Thiên Các — giao diện xem phim tu tiên, huyền huyễn, tiên hiệp, hoạt hình 3D." />
+  <title>Vân Thiên Các | Thế Giới Phim Tu Tiên</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+  <link rel="alternate icon" href="./favicon.ico" />
+  <link rel="preload" as="image" href="./assets/scenes/tien-gioi-real-loop.webp?v=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/styles/main.css?v=39" />
+  <link rel="stylesheet" href="./components/header/header.css?v=4" />
+  <link rel="stylesheet" href="./components/footer/footer.css?v=16" />
+  <script defer src="./src/js/app.js?v=32"></script>
+</head>
+<body>
+  <!-- Pure CSS Animated WebP backdrop (no video/img element so iOS WKWebView never shows a play icon or pops fullscreen) -->
+  <div class="xianxia-backdrop" aria-hidden="true"></div>
+  <!-- Lightweight 2-layer GPU ethereal xianxia cloud veils -->
+  <div class="xianxia-clouds-layer" aria-hidden="true">
+    <div class="cloud-veil cloud-veil-mid"></div>
+    <div class="cloud-veil cloud-veil-gold"></div>
+  </div>
+  <!-- Persistent across route changes. Fixed full-viewport iframe keeps third-party crane CSS isolated. -->
+  <iframe class="sky-crane" src="./components/crane/crane-stage.html?v=9" title="Hạc tiên bay" aria-hidden="true" tabindex="-1" loading="eager"></iframe>
+  <div id="app">
+    <div class="app-loading" role="status"><span class="loading-ring" aria-hidden="true"></span><p>Đang mở Vân Thiên Các…</p></div>
+  </div>
+  <noscript>Website yêu cầu JavaScript để hiển thị danh sách phim.</noscript>
+</body>
+</html>
